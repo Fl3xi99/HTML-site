@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><i class="fas fa-cloud-sun"></i> WeatherHub</h1>
+            <div class="city-selector">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    class="city-search" 
+                    placeholder="Search for a city..."
+                    list="cityList"
+                >
+                <datalist id="cityList"></datalist>
+                <button id="searchBtn" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Current Weather Widget -->
+            <div class="weather-widget current-weather">
+                <div class="loading" id="loadingSpinner"><i class="fas fa-spinner fa-spin"></i></div>
+                <div id="currentWeatherContent" style="display: none;">
+                    <div class="city-header">
+                        <h2 id="cityName"></h2>
+                        <p id="currentDate"></p>
+                    </div>
+                    <div class="main-temp">
+                        <div class="temp-display">
+                            <span id="temp" class="temp-value"></span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-description">
+                            <img id="weatherIcon" src="" alt="Weather icon" class="weather-icon-large">
+                            <p id="weatherDesc"></p>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-card">
+                            <i class="fas fa-droplets"></i>
+                            <span class="detail-label">Humidity</span>
+                            <span id="humidity" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <i class="fas fa-wind"></i>
+                            <span class="detail-label">Wind Speed</span>
+                            <span id="windSpeed" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <i class="fas fa-eye"></i>
+                            <span class="detail-label">Visibility</span>
+                            <span id="visibility" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <i class="fas fa-gauge-high"></i>
+                            <span class="detail-label">Pressure</span>
+                            <span id="pressure" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <i class="fas fa-sun"></i>
+                            <span class="detail-label">Feels Like</span>
+                            <span id="feelsLike" class="detail-value"></span>
+                        </div>
+                        <div class="detail-card">
+                            <i class="fas fa-cloud-rain"></i>
+                            <span class="detail-label">Clouds</span>
+                            <span id="clouds" class="detail-value"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+            </div>
+
+            <!-- 5-Day Forecast Widget -->
+            <div class="weather-widget forecast-widget">
+                <h3><i class="fas fa-calendar-days"></i> 5-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer"></div>
+            </div>
+
+            <!-- Additional Info Widget -->
+            <div class="weather-widget info-widget">
+                <h3><i class="fas fa-info-circle"></i> Additional Info</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-sunrise"></i>
+                        <span class="info-label">Sunrise</span>
+                        <span id="sunrise" class="info-value"></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-sunset"></i>
+                        <span class="info-label">Sunset</span>
+                        <span id="sunset" class="info-value"></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-water"></i>
+                        <span class="info-label">Rain Chance</span>
+                        <span id="rainChance" class="info-value"></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-eye-slash"></i>
+                        <span class="info-label">UV Index</span>
+                        <span id="uvIndex" class="info-value"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 WeatherHub. Powered by OpenWeather API</p>
+    </footer>
+
+    <script src="env.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
